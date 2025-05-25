@@ -1,0 +1,127 @@
+.main {
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    position: relative;
+    background-color: #3c096c;
+}
+
+.main .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 20px;
+    background-color: #240046;
+    color: #e0aaff;
+}
+
+.main .nav img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.main-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.main .greet {
+    font-size: 55px;
+    color: #e0aaff;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #7400b8, #e0aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.main .card {
+    height: 200px;
+    background-color: #240046;
+    padding: 20px;
+    border-radius: 10px;
+    color: #e0aaff;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left; /* Align text to the left */
+}
+
+.main .card:hover {
+    background-color: #10002b;
+}
+
+.main .card img {
+    width: 35px;
+    padding: 5px;
+    border-radius: 20px;
+    align-self: flex-end; /* Align icon to bottom-right */
+    filter: brightness(0) saturate(100%) invert(86%) sepia(15%) saturate(2064%) hue-rotate(222deg) brightness(102%) contrast(97%);
+}
+
+.main .card p {
+    font-size: 17px;
+    color: #e0aaff;
+    margin: 0;
+}
+
+.main-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.searchbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #240046;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.searchbox img {
+    width: 24px;
+    cursor: pointer;
+}
+
+.searchbox input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: #e0aaff;
+    font-size: 18px;
+}
+
+.searchbox div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main .bottom-info {
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+    color: #e0aaff;
+}
