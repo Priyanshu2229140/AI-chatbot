@@ -1,17 +1,16 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyDkxeJR4189LICcKvzs4TZ6Pt6ChBSAS4I" });
+const ai = new GoogleGenerativeAI("AIzaSyDkxeJR4189LICcKvzs4TZ6Pt6ChBSAS4I");
 
 async function main(prompt) {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash-preview-05-20",
-    contents: [
-      { type: "text", text: prompt }
-    ],
-  });
-  console.log(response.text);
-  return response.text;
+  const model = ai.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+
+  const result = await model.generateContent([prompt]);
+  const response = await result.response;
+  const text = await response.text();
+
+  console.log(text);
+  return text;
 }
 
-// Pass the prompt as an argument:
 export default main;
