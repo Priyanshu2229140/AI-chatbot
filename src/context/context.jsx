@@ -13,15 +13,22 @@ const ContextProvider = (props) => {
 
   const onSent = async (prompt) => {
     try {
-      await main(input);
+      setResultData("");
+      setLoading(true);
+      setShowResult(true);
+      setRecentPrompt(input);
+      const response = await main(input);
+      setResultData(response);
+      setLoading(false);
+      setInput("");
     } catch (error) {
       console.error("Error in main:", error);
     }
   };
 
-  useEffect(() => {
-    onSent("reciepe for a cake");
-  }, []);
+  // useEffect(() => {
+  //   onSent("");
+  // }, []);
 
   const contextValue = {
     prevPrompt,
@@ -35,7 +42,6 @@ const ContextProvider = (props) => {
     input,
     setInput,
     // newchat
-
   };
   return (
     <Context.Provider value={contextValue}>{props.children}</Context.Provider>

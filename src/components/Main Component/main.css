@@ -37,6 +37,7 @@
     background: -webkit-linear-gradient(16deg, #7400b8, #e0aaff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .main .cards {
@@ -57,18 +58,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: left; /* Align text to the left */
+    text-align: left;
 }
 
 .main .card:hover {
     background-color: #10002b;
+    box-shadow: 0 0 20px rgba(224, 170, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .main .card img {
     width: 35px;
     padding: 5px;
     border-radius: 20px;
-    align-self: flex-end; /* Align icon to bottom-right */
+    align-self: flex-end;
     filter: brightness(0) saturate(100%) invert(86%) sepia(15%) saturate(2064%) hue-rotate(222deg) brightness(102%) contrast(97%);
 }
 
@@ -95,11 +98,14 @@
     background-color: #240046;
     padding: 10px 20px;
     border-radius: 50px;
+    box-shadow: 0 0 20px rgba(224, 170, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .searchbox img {
     width: 24px;
     cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(86%) sepia(15%) saturate(2064%) hue-rotate(222deg) brightness(102%) contrast(97%);
 }
 
 .searchbox input {
@@ -124,4 +130,79 @@
     text-align: center;
     font-weight: 300;
     color: #e0aaff;
+}
+
+.result {
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+.result-title {
+    margin: 40px 0px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    color: #e0aaff;
+}
+
+.result img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.result-data {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.result-data p {
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #e0aaff;
+}
+
+/* ✨ ChatGPT-style typing dots animation */
+.typing-loader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+    gap: 6px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.typing-loader span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #e0aaff;
+    border-radius: 50%;
+    animation: typingBlink 1.2s infinite ease-in-out;
+}
+
+.typing-loader span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-loader span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingBlink {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
 }

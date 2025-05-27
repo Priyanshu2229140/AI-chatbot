@@ -22,30 +22,60 @@ const Main = () => {
         <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
-        <div className="greet">
-          <p>
-            <span>Welcome to Gemini 2.0</span>
-          </p>
-          <p>How can I help you today?</p>
-        </div>
-        <div className="cards">
-          <div className="card">
-            <p>Suggest beautiful places to visit in the upcoming road trip</p>
-            <img src={assets.compass_icon} alt="" />
+        {!showResult ? (
+          <>
+            <div className="greet">
+              <p>
+                <span>Welcome to Gemini 2.0</span>
+              </p>
+              <p>How can I help you today?</p>
+            </div>
+            <div className="cards">
+              <div className="card">
+                <p>
+                  Suggest beautiful places to visit in the upcoming road trip
+                </p>
+                <img src={assets.compass_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Summarize the content briefly</p>
+                <img src={assets.bulb_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Brainstorm ideas for a new project</p>
+                <img src={assets.message_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Improve the readability of the following code</p>
+                <img src={assets.code_icon} alt="" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="result">
+            <div className="result-title">
+              <img src={assets.user_icon} alt="" />
+              <p>{recentPrompt}</p>
+            </div>
+            <div className="result-data">
+              <img src={assets.gemini_icon} alt="" />
+              {loading ? (
+                <div className="typing-loader">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              ) : (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: typeof resultData === "string" ? resultData : "",
+                  }}
+                ></p>
+              )}
+            </div>
           </div>
-          <div className="card">
-            <p>Summarize the content briefly</p>
-            <img src={assets.bulb_icon} alt="" />
-          </div>
-          <div className="card">
-            <p>Brainstorm ideas for a new project</p>
-            <img src={assets.message_icon} alt="" />
-          </div>
-          <div className="card">
-            <p>Improve the readability of the following code</p>
-            <img src={assets.code_icon} alt="" />
-          </div>
-        </div>
+        )}
+
         <div className="main-bottom">
           <div className="searchbox">
             <input
