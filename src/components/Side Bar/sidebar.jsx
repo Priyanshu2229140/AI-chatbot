@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./sidebar.css";
 import { assets } from "../../assets/assets";
+import { Context } from "../../context/context";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { onSent, prevPrompt, setRecentPrompt } = useContext(Context);
 
   return (
     <div className="sidebar">
@@ -31,16 +33,20 @@ const Sidebar = () => {
         {isOpen && (
           <div className="recent">
             <p className="recent-title">Recent</p>
-            <div className="recent-entry">
-              <span
-                className="colored-icon"
-                style={{
-                  WebkitMaskImage: `url(${assets.message_icon})`,
-                  maskImage: `url(${assets.message_icon})`,
-                }}
-              ></span>
-              <p>What is react...</p>
-            </div>
+            {prevPrompt.map((item, index) => {
+              return (
+                <div className="recent-entry">
+                  <span
+                    className="colored-icon"
+                    style={{
+                      WebkitMaskImage: `url(${assets.message_icon})`,
+                      maskImage: `url(${assets.message_icon})`,
+                    }}
+                  ></span>
+                  <p>{item}...</p>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
