@@ -10,6 +10,46 @@ const ContextProvider = (props) => {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
+  const [listening, setListening] = useState(false);
+
+  const startListening = () => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Speech recognition not supported in this browser.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+
+    setListening(true);
+    recognition.start();
+
+    recognition.onstart = () => {
+      console.log("Voice recognition started. Speak now.");
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log("Transcript:", transcript);
+      setInput((prev) => prev + transcript);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+      alert(`Mic error: ${event.error}`);
+      setListening(false);
+    };
+
+    recognition.onend = () => {
+      console.log("Voice recognition ended.");
+      setListening(false);
+    };
+  };
 
   const delayPara = (index, nextWord) => {
     setTimeout(function () {
@@ -71,6 +111,8 @@ const ContextProvider = (props) => {
     input,
     setInput,
     newChat,
+    startListening,
+    listening,
   };
   return (
     <Context.Provider value={contextValue}>{props.children}</Context.Provider>

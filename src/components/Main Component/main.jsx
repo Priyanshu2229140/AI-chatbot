@@ -13,6 +13,8 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    startListening,
+    listening,
   } = useContext(Context);
 
   return (
@@ -68,7 +70,10 @@ const Main = () => {
               ) : (
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: typeof resultData === "string" ? resultData : "",
+                    __html:
+                      typeof resultData === "string"
+                        ? resultData.replace(/\n/g, "<br/>")
+                        : "",
                   }}
                 ></p>
               )}
@@ -86,7 +91,13 @@ const Main = () => {
             />
             <div>
               <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
+              <img
+                onClick={startListening}
+                className={listening ? "mic-active" : ""}
+                src={assets.mic_icon}
+                alt="mic"
+              />
+
               {input ? (
                 <img onClick={() => onSent()} src={assets.send_icon} alt="" />
               ) : null}
