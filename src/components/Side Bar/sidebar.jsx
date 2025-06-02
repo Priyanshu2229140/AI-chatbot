@@ -57,26 +57,7 @@ const Sidebar = () => {
       </div>
 
       <div className="bottom">
-        <div className="bottom-item recent-entry">
-          <span
-            className="colored-icon"
-            style={{
-              WebkitMaskImage: `url(${assets.question_icon})`,
-              maskImage: `url(${assets.question_icon})`,
-            }}
-          ></span>
-          {isOpen && <p>Help</p>}
-        </div>
-        <div className="bottom-item recent-entry">
-          <span
-            className="colored-icon"
-            style={{
-              WebkitMaskImage: `url(${assets.history_icon})`,
-              maskImage: `url(${assets.history_icon})`,
-            }}
-          ></span>
-          {isOpen && <p>Activity</p>}
-        </div>
+  
         <div className="bottom-item recent-entry">
           <span
             className="colored-icon"

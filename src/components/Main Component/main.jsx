@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/context";
@@ -17,50 +16,90 @@ const Main = () => {
     listening,
   } = useContext(Context);
 
+  const [selectedModel, setSelectedModel] = useState("2.5 Flash");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const models = [
+    { name: "2.5 Flash", description: "Fast all-round help", new: true },
+    {
+      name: "2.5 Pro (preview)",
+      description: "Reasoning, maths and code",
+      new: true,
+    },
+    {
+      name: "Personalization (preview)",
+      description: "Based on your Search history",
+      new: true,
+    },
+  ];
+
+  const handleSelectModel = (model) => {
+    setSelectedModel(model);
+    setDropdownOpen(false);
+  };
+
   return (
     <div className="main">
       <div className="nav">
-        <p>Gemini 2.0</p>
-        <img src={assets.user_icon} alt="" />
+        <div className="nav-left">
+          <p className="nav-title">Gemini</p>
+          <div className="model-selector">
+            <button
+              className="model-button"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              {selectedModel} <span className="arrow">▼</span>
+            </button>
+
+            {dropdownOpen && (
+              <div className="model-dropdown">
+                <p className="dropdown-header">Choose your model</p>
+                {models.map((model) => (
+                  <div
+                    key={model.name}
+                    className="model-option"
+                    onClick={() => handleSelectModel(model.name)}
+                  >
+                    <div>
+                      <div className="model-name">{model.name}</div>
+                      <div className="model-desc">{model.description}</div>
+                    </div>
+                    {model.new && <span className="new-badge">New</span>}
+                  </div>
+                ))}
+                <div className="model-upgrade">
+                  <div>
+                    <div className="model-name">Upgrade to Google AI Pro</div>
+                    <div className="model-desc">
+                      Get our most capable models and features
+                    </div>
+                  </div>
+                  <button className="upgrade-btn">Upgrade</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <img src={assets.user_icon} alt="user" />
       </div>
+
       <div className="main-container">
         {!showResult ? (
-          <>
-            <div className="greet">
-              <p>
-                <span>Welcome to Gemini 2.0</span>
-              </p>
-              <p>How can I help you today?</p>
-            </div>
-            <div className="cards">
-              <div className="card">
-                <p>
-                  Suggest beautiful places to visit in the upcoming road trip
-                </p>
-                <img src={assets.compass_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Summarize the content briefly</p>
-                <img src={assets.bulb_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Brainstorm ideas for a new project</p>
-                <img src={assets.message_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Improve the readability of the following code</p>
-                <img src={assets.code_icon} alt="" />
-              </div>
-            </div>
-          </>
+          <div className="greet">
+            <p>
+              <span>Welcome to {selectedModel}</span>
+            </p>
+            <p>How can I help you today?</p>
+          </div>
         ) : (
           <div className="result">
             <div className="result-title">
-              <img src={assets.user_icon} alt="" />
+              <img src={assets.user_icon} alt="user" />
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
-              <img src={assets.gemini_icon} alt="" />
+              <img src={assets.gemini_icon} alt="gemini" />
               {loading ? (
                 <div className="typing-loader">
                   <span></span>
@@ -90,17 +129,20 @@ const Main = () => {
               placeholder="Enter Prompt"
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
+              <img src={assets.gallery_icon} alt="gallery" />
               <img
                 onClick={startListening}
                 className={listening ? "mic-active" : ""}
                 src={assets.mic_icon}
                 alt="mic"
               />
-
-              {input ? (
-                <img onClick={() => onSent()} src={assets.send_icon} alt="" />
-              ) : null}
+              {input && (
+                <img
+                  onClick={() => onSent()}
+                  src={assets.send_icon}
+                  alt="send"
+                />
+              )}
             </div>
           </div>
           <p className="bottom-info">
