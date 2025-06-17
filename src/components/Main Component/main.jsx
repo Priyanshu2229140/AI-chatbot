@@ -37,19 +37,15 @@ const Main = () => {
                 <p>
                   Suggest beautiful places to visit in the upcoming road trip
                 </p>
-                <img src={assets.compass_icon} alt="" />
               </div>
               <div className="card">
                 <p>Summarize the content briefly</p>
-                <img src={assets.bulb_icon} alt="" />
               </div>
               <div className="card">
                 <p>Brainstorm ideas for a new project</p>
-                <img src={assets.message_icon} alt="" />
               </div>
               <div className="card">
                 <p>Improve the readability of the following code</p>
-                <img src={assets.code_icon} alt="" />
               </div>
             </div>
           </>

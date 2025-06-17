@@ -3,7 +3,7 @@
     min-height: 100vh;
     padding-bottom: 15vh;
     position: relative;
-    background-color: #3c096c;
+    background-color: #f1faee;
 }
 
 .main .nav {
@@ -12,8 +12,7 @@
     align-items: center;
     font-size: 20px;
     padding: 20px;
-    background-color: #240046;
-    color: #e0aaff;
+    color: #457b9d;
 }
 
 .main .nav img {
@@ -28,13 +27,13 @@
 
 .main .greet {
     font-size: 55px;
-    color: #e0aaff;
+    color: #1d3557;
     font-weight: 500;
     padding: 20px;
 }
 
 .main .greet span {
-    background: -webkit-linear-gradient(16deg, #7400b8, #e0aaff);
+    background: -webkit-linear-gradient(16deg, #457b9d, #a8dadc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
@@ -46,13 +45,12 @@
     gap: 15px;
     padding: 20px;
 }
-
 .main .card {
     height: 200px;
-    background-color: #240046;
+    background-color: #a8dadc;
     padding: 20px;
     border-radius: 10px;
-    color: #e0aaff;
+    color: #1d3557;
     position: relative;
     cursor: pointer;
     display: flex;
@@ -62,24 +60,24 @@
 }
 
 .main .card:hover {
-    background-color: #10002b;
-    box-shadow: 0 0 20px rgba(224, 170, 255, 0.4);
-    transition: box-shadow 0.3s ease-in-out;
+    background-color: #1d3557;
+    box-shadow: 0 0 25px rgba(93, 109, 255, 0.6), 0 0 40px rgba(93, 109, 255, 0.2);
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out;
+}
+.main .card:hover p {
+    color: #a8dadc; 
 }
 
-.main .card img {
-    width: 35px;
-    padding: 5px;
-    border-radius: 20px;
-    align-self: flex-end;
-    filter: brightness(0) saturate(100%) invert(86%) sepia(15%) saturate(2064%) hue-rotate(222deg) brightness(102%) contrast(97%);
-}
+
 
 .main .card p {
     font-size: 17px;
-    color: #e0aaff;
+    font-weight: bold;
+    color: #1d3557;
     margin: 0;
 }
+
 
 .main-bottom {
     position: absolute;
@@ -95,7 +93,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    background-color: #240046;
+    background-color: #a8dadc;
     padding: 10px 20px;
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(224, 170, 255, 0.4);
@@ -105,7 +103,8 @@
 .searchbox img {
     width: 24px;
     cursor: pointer;
-    filter: brightness(0) saturate(100%) invert(86%) sepia(15%) saturate(2064%) hue-rotate(222deg) brightness(102%) contrast(97%);
+    filter: brightness(0) saturate(100%) invert(18%) sepia(14%) saturate(748%) hue-rotate(185deg) brightness(98%) contrast(92%);
+
 }
 
 .searchbox input {
@@ -114,7 +113,7 @@
     border: none;
     outline: none;
     padding: 8px;
-    color: #e0aaff;
+    color: #1d3557;
     font-size: 18px;
 }
 
@@ -129,7 +128,7 @@
     margin: 15px auto;
     text-align: center;
     font-weight: 300;
-    color: #e0aaff;
+    color: #1d3557;
 }
 
 .result {
@@ -147,7 +146,7 @@
     gap: 20px;
     display: flex;
     align-items: center;
-    color: #e0aaff;
+    color: #1d3557;
 }
 
 .result img {
@@ -165,10 +164,9 @@
     font-size: 17px;
     line-height: 1.8;
     font-weight: 300;
-    color: #e0aaff;
+    color: #1d3557;
 }
 
-/* ✨ ChatGPT-style typing dots animation */
 .typing-loader {
     display: flex;
     align-items: center;
@@ -230,7 +228,7 @@
     
 }
 .mic-active {
-  filter: drop-shadow(0 0 5px #00f) brightness(1.2);
+  filter: drop-shadow(0 0 5px #1d3557) brightness(1.2);
   animation: pulse 1s infinite;
 }
 
