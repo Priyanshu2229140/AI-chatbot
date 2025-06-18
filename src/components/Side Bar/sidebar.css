@@ -64,7 +64,7 @@
 }
 
 .sidebar .recent-entry:hover {
-    background-color: #5a189a;
+    background-color: #1d3557;
     box-shadow: 0 0 20px rgba(224, 170, 255, 0.4);
     transition: box-shadow 0.3s ease-in-out;
 }

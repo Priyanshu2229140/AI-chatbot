@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import React from "react";
+import React, { useContext } from "react";
 import "./main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/context";
+import Navbar from "../Nav Bar/NavBar";
 
 const Main = () => {
   const {
@@ -19,10 +19,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <div className="nav">
-        <p>Gemini 2.0</p>
-        <img src={assets.user_icon} alt="" />
-      </div>
+      <Navbar />
       <div className="main-container">
         {!showResult ? (
           <>
@@ -76,7 +73,6 @@ const Main = () => {
             </div>
           </div>
         )}
-
         <div className="main-bottom">
           <div className="searchbox">
             <input
@@ -93,7 +89,6 @@ const Main = () => {
                 src={assets.mic_icon}
                 alt="mic"
               />
-
               {input ? (
                 <img onClick={() => onSent()} src={assets.send_icon} alt="" />
               ) : null}
