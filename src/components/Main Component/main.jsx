@@ -79,7 +79,7 @@ const Main = () => {
               onChange={(e) => setInput(e.target.value)}
               value={input}
               type="text"
-              placeholder="Enter Prompt"
+              placeholder="Ask Gemini 2.0"
             />
             <div>
               <img src={assets.gallery_icon} alt="" />
