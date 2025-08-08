@@ -95,7 +95,7 @@ const Main = () => {
             </div>
           </div>
           <p className="bottom-info">
-            Support with love and humanism by Priyanshu &#128536
+            Support with love and humanism by Priyanshu &#128536;
           </p>
         </div>
       </div>
