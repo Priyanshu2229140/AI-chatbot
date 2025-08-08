@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <span className="logo">Gemini</span>
+        <span className="logo">AI Bot</span>
         <div className="model-selector" onClick={toggleDropdown}>
           <span>{selectedModel} ▼</span>
           {dropdownOpen && (
@@ -31,7 +31,7 @@ const Navbar = () => {
                 Personalization (preview)
               </div>
               <div className="upgrade">
-                Upgrade to Google AI Pro <button>Upgrade</button>
+                Upgrade to AI Bot Pro <button>Upgrade</button>
               </div>
             </div>
           )}

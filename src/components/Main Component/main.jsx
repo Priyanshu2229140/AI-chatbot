@@ -25,7 +25,7 @@ const Main = () => {
           <>
             <div className="greet">
               <p>
-                <span>Welcome to Gemini 2.0</span>
+                <span>Welcome to AI Bot 2.0</span>
               </p>
               <p>How can I help you today?</p>
             </div>
@@ -79,7 +79,7 @@ const Main = () => {
               onChange={(e) => setInput(e.target.value)}
               value={input}
               type="text"
-              placeholder="Ask Gemini 2.0"
+              placeholder="Ask AI Bot 2.0"
             />
             <div>
               <img src={assets.gallery_icon} alt="" />
